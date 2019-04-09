@@ -1,0 +1,14 @@
+.Clock {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.Clock__separator {
+  display: inline;
+  font-size: 80px;
+  margin: 0 2.5px;
+  color: whitesmoke;
+  text-shadow: 0 0 10px rgba(0, 0, 0, .6);
+}

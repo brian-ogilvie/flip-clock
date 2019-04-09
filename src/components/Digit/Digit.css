@@ -1,0 +1,98 @@
+.Digit {
+  display: inline-block;
+  font-size: 90px;
+  color: white;
+  background-color: black;
+  width: 80px;
+  height: 100px;
+  position: relative;
+  perspective: 200px;
+  margin: 2.5px;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  border-radius: 8px;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.Digit__top, .Digit__bottom, .Digit__front, .Digit__back {
+  display: flex;
+  justify-content: center;
+  background-color: dimgray;
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  overflow:hidden;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.Digit__top, .Digit__front {
+  border-radius: 8px;
+  top: -1px;
+}
+
+.Digit__bottom, .Digit__back {
+  border-radius: 8px;
+  padding-bottom: 11px;
+}
+
+.Digit__front, .Digit__back {
+  width: 80px;
+  overflow:hidden;
+  text-align:center;
+  box-shadow: 0 0 4px rgba(0,0,0,0);
+  transition: box-shadow .5s;
+}
+
+.Digit__front {
+  align-items: flex-start;
+  transform-origin: 50% 50px;
+  backface-visibility: hidden;
+}
+
+.Digit__back {
+  align-items: flex-end;
+  z-index: 1001;
+  border-top: 1px solid black;
+  bottom: 0;
+  transform-origin: 50% 0;
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+}
+
+.Digit__front--flip {
+  animation: flip 1s ease-in;
+}
+
+.Digit__back--flip {
+  animation: flip-back 1s ease-in;
+}
+
+.Digit__bottom {
+  bottom: -1px;
+  align-items: flex-end;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  60% {
+    transform: rotateX(-180deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes flip-back {
+  0% {
+    transform: rotateX(180deg);
+  }
+  60% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
